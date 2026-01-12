@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLM Compression Model Comparison - Sentiment Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🤖 LLM Compression Comparison</h1>
+            <p class="subtitle">Compare BERT-base vs Compressed DistilBERT for Sentiment Analysis</p>
+        </header>
+
+        <div class="model-info-bar">
+            <div class="model-badge teacher">
+                <span class="model-name">BERT-base</span>
+                <span class="model-params" id="teacher-params">Loading...</span>
+            </div>
+            <div class="vs-divider">VS</div>
+            <div class="model-badge student">
+                <span class="model-name">DistilBERT</span>
+                <span class="model-params" id="student-params">Loading...</span>
+            </div>
+        </div>
+
+        <div class="chat-container">
+            <div class="chat-messages" id="chatMessages">
+                <div class="welcome-message">
+                    <p>👋 Welcome! Enter a text below to compare sentiment predictions from both models.</p>
+                    <p class="hint">Try sentences like: "This movie is absolutely fantastic!" or "I hated this film."</p>
+                </div>
+            </div>
+
+            <div class="input-container">
+                <textarea 
+                    id="textInput" 
+                    placeholder="Enter your text here for sentiment analysis..."
+                    rows="3"
+                ></textarea>
+                <button id="sendButton" onclick="sendMessage()">
+                    <span>Analyze</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="22" y1="2" x2="11" y2="13"></line>
+                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <div class="comparison-stats" id="comparisonStats" style="display: none;">
+            <h3>📊 Comparison Statistics</h3>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-label">Speed-up</div>
+                    <div class="stat-value" id="speedup">-</div>
+                    <div class="stat-desc">x faster</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Agreement</div>
+                    <div class="stat-value" id="agreement">-</div>
+                    <div class="stat-desc">predictions match</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Total Queries</div>
+                    <div class="stat-value" id="totalQueries">0</div>
+                    <div class="stat-desc">analyzed</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
+
