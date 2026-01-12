@@ -1,4 +1,6 @@
 # Explication Simplifiée du Notebook : Compression de Modèles LLM
+<img width="451" height="555" alt="image" src="https://github.com/user-attachments/assets/a206a6ff-cd09-4514-8df9-d1695d45f895" />
+
 
 Voici une explication étape par étape du code contenu dans votre notebook pour la compression de modèles de langage (LLM).
 
